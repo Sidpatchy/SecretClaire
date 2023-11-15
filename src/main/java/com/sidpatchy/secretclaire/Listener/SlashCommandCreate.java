@@ -24,10 +24,10 @@ public class SlashCommandCreate implements SlashCommandCreateListener {
         SlashCommandInteraction slashCommandInteraction = event.getSlashCommandInteraction();
         String commandName = slashCommandInteraction.getCommandName();
         User author = slashCommandInteraction.getUser();
-        User user = slashCommandInteraction.getOptionUserValueByName("user").orElse(author);
+        User user = slashCommandInteraction.getArgumentUserValueByName("user").orElse(author);
 
         if (commandName.equalsIgnoreCase(parseCommands.getCommandName("help"))) {
-            String command = slashCommandInteraction.getOptionStringValueByIndex(0).orElse("help");
+            String command = slashCommandInteraction.getArgumentStringValueByIndex(0).orElse("help");
 
             try {
                 slashCommandInteraction.createImmediateResponder()
@@ -39,7 +39,7 @@ public class SlashCommandCreate implements SlashCommandCreateListener {
             }
         }
         else if (commandName.equalsIgnoreCase(parseCommands.getCommandName("santa"))) {
-            Role role = slashCommandInteraction.getOptionRoleValueByName("role").orElse(null);
+            Role role = slashCommandInteraction.getArgumentRoleValueByName("role").orElse(null);
 
             if (role == null) {
                 slashCommandInteraction.createImmediateResponder().addEmbed(

@@ -78,6 +78,7 @@ public class ButtonClick implements ButtonClickListener {
 
                 break;
             case "send":
+                buttonInteraction.acknowledge();
                 for (int i = 0; i < givers.size(); i++) {
                     SantaEmbed.getSantaMessage(server, author, givers.get(i), receivers.get(i), rules, theme).send(givers.get(i));
                 }
