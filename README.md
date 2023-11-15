@@ -1,2 +1,3 @@
-# BaseBot
- A basic discord bot with no features based on [ClaireBot](https://github.com/Sidpatchy/ClaireBot)
+# SecretClaire
+
+A Discord bot for facilitating Secret Santa gift exchanges.

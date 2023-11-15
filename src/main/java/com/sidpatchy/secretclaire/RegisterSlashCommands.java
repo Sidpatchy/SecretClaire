@@ -1,4 +1,4 @@
-package com.sidpatchy.basebot;
+package com.sidpatchy.secretclaire;
 
 import com.sidpatchy.Robin.Discord.ParseCommands;
 import org.javacord.api.DiscordApi;
@@ -36,7 +36,9 @@ public class RegisterSlashCommands {
 
         Set<SlashCommandBuilder> commandsList = new HashSet<>(Arrays.asList(
                 new SlashCommandBuilder().setName(parseCommands.getCommandName("help")).setDescription(parseCommands.getCommandHelp("help"))
-                    .addOption(SlashCommandOption.createWithChoices(SlashCommandOptionType.STRING, "command-name", "Command to get more info on", false, helpCommandOptions))
+                        .addOption(SlashCommandOption.createWithChoices(SlashCommandOptionType.STRING, "command-name", "Command to get more info on", false, helpCommandOptions)),
+                new SlashCommandBuilder().setName(parseCommands.getCommandName("santa")).setDescription(parseCommands.getCommandOverview("santa"))
+                        .addOption(SlashCommandOption.create(SlashCommandOptionType.ROLE, "Role", "Role to get users from", true))
         ));
 
         api.bulkOverwriteGlobalApplicationCommands(commandsList).join();

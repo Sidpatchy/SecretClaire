@@ -1,15 +1,19 @@
-package com.sidpatchy.basebot.Listener;
+package com.sidpatchy.secretclaire.Listener;
 
 import com.sidpatchy.Robin.Discord.ParseCommands;
-import com.sidpatchy.basebot.Embed.HelpEmbed;
-import com.sidpatchy.basebot.Main;
+import com.sidpatchy.secretclaire.MessageComponents.ErrorEmbed;
+import com.sidpatchy.secretclaire.MessageComponents.HelpEmbed;
+import com.sidpatchy.secretclaire.MessageComponents.SantaEmbed;
+import com.sidpatchy.secretclaire.Main;
 import org.apache.logging.log4j.Logger;
+import org.javacord.api.entity.permission.Role;
 import org.javacord.api.entity.user.User;
 import org.javacord.api.event.interaction.SlashCommandCreateEvent;
 import org.javacord.api.interaction.SlashCommandInteraction;
 import org.javacord.api.listener.interaction.SlashCommandCreateListener;
 
 import java.io.FileNotFoundException;
+import java.util.Objects;
 
 public class SlashCommandCreate implements SlashCommandCreateListener {
     static ParseCommands parseCommands = new ParseCommands(Main.getCommandsFile());
@@ -33,6 +37,29 @@ public class SlashCommandCreate implements SlashCommandCreateListener {
                 Main.getLogger().error(e);
                 Main.getLogger().error("There was an issue locating the commands file at some point in the chain while the help command was running, good luck!");
             }
+        }
+        else if (commandName.equalsIgnoreCase(parseCommands.getCommandName("santa"))) {
+            Role role = slashCommandInteraction.getOptionRoleValueByName("role").orElse(null);
+
+            if (role == null) {
+                slashCommandInteraction.createImmediateResponder().addEmbed(
+                        ErrorEmbed.getError(Main.getErrorCode("RoleMissing"))
+                ).respond();
+                return;
+            }
+
+            if (!author.getIdAsString().equalsIgnoreCase("264601404562210828")) {
+                slashCommandInteraction.createImmediateResponder().addEmbed(
+                        ErrorEmbed.getLackingPermissions("You don't have permission to run this command!")
+                ).respond();
+                return;
+            }
+
+            slashCommandInteraction.createImmediateResponder().addEmbed(
+                    SantaEmbed.getConfirmationEmbed(author)
+            ).respond();
+
+            SantaEmbed.getHostMessage(role, author, "", "").send(author);
         }
     }
 }

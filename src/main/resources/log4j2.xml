@@ -2,7 +2,7 @@
 <Configuration status="WARN">
     <Properties>
         <Property name="logPath">logs</Property>
-        <Property name="rollingFileName">basebot</Property>
+        <Property name="rollingFileName">SecretClaire</Property>
     </Properties>
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">

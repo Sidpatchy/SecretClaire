@@ -12,5 +12,13 @@
 help:
   name: "help"
   usage: "/help <optional: command-name>"
-  help: "Learn how to use BaseBot's commands and various features."
+  help: "Learn how to use SecretClaire's commands and various features."
   overview: ""
+
+santa:
+  name: "santa"
+  usage: "/santa <role: role to pull users from>"
+  help: "When run, a dialogue displaying all pair-ups will be privately messaged to the issuer. The issuer will then be
+  able to view the pair-ups, add rules/themes, view a sample message, and regenerate the pair-ups before anything is sent.
+  to a santa."
+  overview: "Command to send secret santa message to mentioned role's users."

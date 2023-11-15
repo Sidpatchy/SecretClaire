@@ -1,6 +1,6 @@
-package com.sidpatchy.basebot.Embed;
+package com.sidpatchy.secretclaire.MessageComponents;
 
-import com.sidpatchy.basebot.Main;
+import com.sidpatchy.secretclaire.Main;
 import org.javacord.api.entity.message.embed.EmbedBuilder;
 
 public class ErrorEmbed {

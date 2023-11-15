@@ -1,10 +1,12 @@
-package com.sidpatchy.basebot;
+package com.sidpatchy.secretclaire;
 
 import com.sidpatchy.Robin.Discord.ParseCommands;
 import com.sidpatchy.Robin.Exception.InvalidConfigurationException;
 import com.sidpatchy.Robin.File.ResourceLoader;
 import com.sidpatchy.Robin.File.RobinConfiguration;
-import com.sidpatchy.basebot.Listener.SlashCommandCreate;
+import com.sidpatchy.secretclaire.Listener.ButtonClick;
+import com.sidpatchy.secretclaire.Listener.ModalSubmit;
+import com.sidpatchy.secretclaire.Listener.SlashCommandCreate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.javacord.api.DiscordApi;
@@ -32,8 +34,8 @@ import java.util.Map;
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * @since November 2023
- * @version 1.0.0
+ * @since November 2021
+ * @version 2.0.0
  * @author Sidpatchy
  */
 public class Main {
@@ -66,7 +68,7 @@ public class Main {
     private static RobinConfiguration config;
     private static ParseCommands commands;
 
-    public static List<String> commandList = Arrays.asList("help");
+    public static List<String> commandList = Arrays.asList("help", "santa");
 
     public static void main(String[] args) throws InvalidConfigurationException {
         logger.info("Starting...");
@@ -100,13 +102,15 @@ public class Main {
         }
 
         // Set the bot's activity
-        api.updateActivity("BaseBot v1.0.0", video_url);
+        api.updateActivity("SecretClaire v2.0.0", video_url);
 
         // Register slash commands
         registerSlashCommands();
 
         // Register Command-related listeners
         api.addSlashCommandCreateListener(new SlashCommandCreate());
+        api.addButtonClickListener(new ButtonClick());
+        api.addModalSubmitListener(new ModalSubmit());
 
         logger.info("Done loading! (" + (System.currentTimeMillis() - startMillis) + "ms)");
     }

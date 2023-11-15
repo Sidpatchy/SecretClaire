@@ -1,7 +1,7 @@
-package com.sidpatchy.basebot.Embed;
+package com.sidpatchy.secretclaire.MessageComponents;
 
 import com.sidpatchy.Robin.Discord.ParseCommands;
-import com.sidpatchy.basebot.Main;
+import com.sidpatchy.secretclaire.Main;
 import org.javacord.api.entity.message.embed.EmbedBuilder;
 
 import java.io.FileNotFoundException;
