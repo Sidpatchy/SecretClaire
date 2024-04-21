@@ -86,7 +86,7 @@ public class SantaEmbed {
             embed.addField("Rules", rules, false);
         }
 
-        embed.setDescription("Ho! Ho! Ho! You have received " + receiver.getNicknameMentionTag() + " in the " + server.getName() + " Secret Santa!");
+        embed.setDescription("Ho! Ho! Ho! You have received **" + receiver.getNickname(server) + "** in the " + server.getName() + " Secret Santa!");
 
         message.addEmbed(embed);
 

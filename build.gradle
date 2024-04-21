@@ -1,6 +1,6 @@
 plugins {
-    id 'com.github.johnrengelman.shadow' version '7.1.0'
-    id 'org.jetbrains.kotlin.jvm' version '1.7.10'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.22'
     id 'java'
 }
 
@@ -24,16 +24,16 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.1'
 
     implementation 'com.github.Sidpatchy:Robin:2.0.0'
     implementation 'org.javacord:javacord:3.8.0'
 
-    implementation 'org.apache.logging.log4j:log4j-api:2.19.0'
-    implementation 'org.apache.logging.log4j:log4j-core:2.19.0'
-    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.19.0'
-    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation 'org.apache.logging.log4j:log4j-api:2.22.1'
+    implementation 'org.apache.logging.log4j:log4j-core:2.22.1'
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.22.1'
+    implementation 'org.apache.commons:commons-lang3:3.14.0'
 }
 
 tasks.test {
