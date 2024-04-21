@@ -48,10 +48,11 @@ public class SlashCommandCreate implements SlashCommandCreateListener {
                 return;
             }
 
-            if (!author.getIdAsString().equalsIgnoreCase("264601404562210828")) {
-                slashCommandInteraction.createImmediateResponder().addEmbed(
-                        ErrorEmbed.getLackingPermissions("You don't have permission to run this command!")
-                ).respond();
+            if (!author.canManageRole(role)) {
+                slashCommandInteraction.createImmediateResponder()
+                        .addEmbed(ErrorEmbed.getLackingPermissions("Sorry! You don't have the permission to run this " +
+                                "command. You must be able to manage the role " + role.getMentionTag() + "."))
+                        .respond();
                 return;
             }
 

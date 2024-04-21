@@ -16,7 +16,7 @@ public class SantaEmbed {
     public static EmbedBuilder getConfirmationEmbed(User author) {
         return new EmbedBuilder()
                 .setColor(Main.getErrorColor())
-                .setAuthor("SecretClaire", "", "https://cdn.discordapp.com/attachments/595707737669894147/908187536587894844/santuelson.png")
+                .setAuthor("SecretClaire", "", "https://github.com/Sidpatchy/ClaireBot/blob/main/img/ClaireBot-SantaHat.png?raw=true")
                 .setDescription("Confirmed! I've sent you a direct message. Please continue there.");
     }
 
@@ -37,7 +37,7 @@ public class SantaEmbed {
 
         EmbedBuilder embed = new EmbedBuilder()
                 .setColor(Main.getColor())
-                .setAuthor("SecretClaire", "", "https://cdn.discordapp.com/attachments/595707737669894147/908187536587894844/santuelson.png")
+                .setAuthor("SecretClaire", "", "https://github.com/Sidpatchy/ClaireBot/blob/main/img/ClaireBot-SantaHat.png?raw=true")
                 .setFooter(ButtonClick.getSantaID(server.getIdAsString(), author.getIdAsString(), role.getIdAsString()), server.getIcon().orElse(null));
 
         if (!theme.isEmpty()) {
@@ -75,7 +75,7 @@ public class SantaEmbed {
 
         EmbedBuilder embed = new EmbedBuilder()
                 .setColor(Main.getColor())
-                .setAuthor("SecretClaire", "", "https://cdn.discordapp.com/attachments/595707737669894147/908187536587894844/santuelson.png")
+                .setAuthor("SecretClaire", "", "https://github.com/Sidpatchy/ClaireBot/blob/main/img/ClaireBot-SantaHat.png?raw=true")
                 .setFooter("Sent by " + author.getName(), author.getAvatar());
 
         if (!theme.isEmpty()) {
